@@ -11,7 +11,13 @@ const sendVarifyMail = require('./mail_send');
 //const { type } = require("os");
 
 app.use(express.json());
-app.use(cors());
+app.use(cors(
+    {
+        origin: [""],
+        methods: ["GET","POST"],
+        credentials: true
+    }
+));
 
 // Database connection with mongodb
 mongoose.connect("mongodb+srv://root:root@cluster0.miluv8o.mongodb.net/e-commerce");
